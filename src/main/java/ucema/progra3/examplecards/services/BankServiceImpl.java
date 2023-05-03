@@ -38,6 +38,11 @@ public class BankServiceImpl implements IBankService{
     }
 
     @Override
+    public Bank getBankById(Long id) {
+        return this.bankRepository.findById(id).orElse(null);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public Bank searchBankByName(String name) {
         return this.bankRepository.findByName(name).orElse(null);

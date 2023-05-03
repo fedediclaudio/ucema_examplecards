@@ -11,6 +11,7 @@ public interface IBankService {
     Bank updateBank(Bank bank, String name, String address);
     void deleteBank(Bank bank);
 
+    Bank getBankById(Long id);
     Bank searchBankByName(String name);
     List<Bank> allBanks();
     List<Bank> searchBankByMinTotalSpent(float spent);

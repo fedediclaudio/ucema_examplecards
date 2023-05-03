@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 import ucema.progra3.examplecards.config.AppConfig;
 import ucema.progra3.examplecards.model.*;
 import ucema.progra3.examplecards.services.IBankService;
@@ -67,6 +68,7 @@ class ExamplecardsApplicationTests {
 	@Test
 	void findBankByName() {
 		Bank bank = this.bankService.searchBankByName("Banco Santander");
+		int size = bank.getCards().size();
 	}
 
 	@Test

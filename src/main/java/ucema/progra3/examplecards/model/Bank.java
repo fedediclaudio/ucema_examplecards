@@ -1,5 +1,6 @@
 package ucema.progra3.examplecards.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class Bank {
     @Column(name = "total_spent")
     private double totalSpent;
 
-    @OneToMany(mappedBy = "bank", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "bank", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
     private List<Card> cards;
 
     public Bank () {
@@ -90,5 +91,13 @@ public class Bank {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
     }
 }
