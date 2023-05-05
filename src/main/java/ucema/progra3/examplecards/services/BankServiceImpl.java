@@ -5,11 +5,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ucema.progra3.examplecards.model.Bank;
 import ucema.progra3.examplecards.repositories.BankRepository;
+import ucema.progra3.examplecards.services.interfaces.IBankService;
 
 import java.util.List;
 
 @Service
-public class BankServiceImpl implements IBankService{
+public class BankServiceImpl implements IBankService {
 
     @Autowired
     private BankRepository bankRepository;

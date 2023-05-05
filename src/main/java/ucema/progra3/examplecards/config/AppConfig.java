@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import ucema.progra3.examplecards.services.BankServiceImpl;
 import ucema.progra3.examplecards.services.CardServiceImpl;
-import ucema.progra3.examplecards.services.IBankService;
-import ucema.progra3.examplecards.services.ICardService;
+import ucema.progra3.examplecards.services.interfaces.IBankService;
+import ucema.progra3.examplecards.services.interfaces.ICardService;
 
 @Configuration
 public class AppConfig {

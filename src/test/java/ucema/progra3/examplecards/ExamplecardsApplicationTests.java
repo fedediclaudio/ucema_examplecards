@@ -6,13 +6,10 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.transaction.annotation.Transactional;
-import ucema.progra3.examplecards.config.AppConfig;
 import ucema.progra3.examplecards.model.*;
-import ucema.progra3.examplecards.services.IBankService;
-import ucema.progra3.examplecards.services.ICardService;
+import ucema.progra3.examplecards.services.interfaces.IBankService;
+import ucema.progra3.examplecards.services.interfaces.ICardService;
 
 import java.util.List;
 

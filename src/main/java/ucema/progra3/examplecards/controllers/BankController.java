@@ -3,7 +3,7 @@ package ucema.progra3.examplecards.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ucema.progra3.examplecards.model.*;
-import ucema.progra3.examplecards.services.IBankService;
+import ucema.progra3.examplecards.services.interfaces.IBankService;
 
 import java.util.List;
 

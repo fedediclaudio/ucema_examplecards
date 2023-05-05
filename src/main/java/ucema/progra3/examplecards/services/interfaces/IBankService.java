@@ -1,4 +1,4 @@
-package ucema.progra3.examplecards.services;
+package ucema.progra3.examplecards.services.interfaces;
 
 import ucema.progra3.examplecards.model.Bank;
 import ucema.progra3.examplecards.model.Card;

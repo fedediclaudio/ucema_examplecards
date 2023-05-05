@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ucema.progra3.examplecards.model.*;
 import ucema.progra3.examplecards.repositories.CardRepository;
+import ucema.progra3.examplecards.services.interfaces.ICardService;
 
-import java.beans.Transient;
 import java.util.List;
 
 @Service
