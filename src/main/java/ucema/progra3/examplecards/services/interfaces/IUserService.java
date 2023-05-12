@@ -7,4 +7,6 @@ public interface IUserService {
 
     User createUser(User user);
     Role createRole(Role role);
+    boolean checkUserById(Long id);
+    String authenticate(String username, String password);
 }

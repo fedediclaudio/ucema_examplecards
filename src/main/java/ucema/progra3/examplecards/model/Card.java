@@ -1,5 +1,7 @@
 package ucema.progra3.examplecards.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -31,10 +33,13 @@ public abstract class Card {
 
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "id_bank", nullable = false)
+    @JsonManagedReference
     private Bank bank;
 
-    @Transient
-    private Customer customer;
+    @ManyToOne(cascade = {}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_user", nullable = false)
+    @JsonIgnore
+    private User customer;
 
     @Transient
     private List<Purchase> purchases;
@@ -49,7 +54,7 @@ public abstract class Card {
         // Constructor vacio
     }
 
-    public Card(String number, String expiryDate, Customer customer, Bank bank){
+    public Card(String number, String expiryDate, User customer, Bank bank){
         this.number = number;
         this.expiryDate = expiryDate;
         this.customer = customer;
@@ -57,7 +62,7 @@ public abstract class Card {
         this.bank = bank;
     }
 
-    public Card(String number, String expiryDate, Customer customer, Bank bank, List<Purchase> purchases){
+    public Card(String number, String expiryDate, User customer, Bank bank, List<Purchase> purchases){
         this.number = number;
         this.expiryDate = expiryDate;
         this.customer = customer;
@@ -77,11 +82,11 @@ public abstract class Card {
         this.purchases = purchases;
     }
 
-    public Customer getCustomer() {
+    public User getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(User customer) {
         this.customer = customer;
     }
 

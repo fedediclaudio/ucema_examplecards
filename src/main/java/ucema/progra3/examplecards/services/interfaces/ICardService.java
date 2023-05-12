@@ -6,10 +6,12 @@ import java.util.List;
 
 public interface ICardService {
 
-    CreditCard createCreditCard(String number, String expiryDate, Customer customer,Bank bank,  double creditLimit, double interestRate);
+    CreditCard createCreditCard(String number, String expiryDate, User customer,Bank bank,  double creditLimit, double interestRate);
 
-    DebitCard createDebitCard(String number, String expiryDate, Customer customer, Bank bank, String pin);
+    DebitCard createDebitCard(String number, String expiryDate, User customer, Bank bank, String pin);
 
     List<Card> findByBankName(String name);
+
+    List<Card> getCardOfUser();
 }
 

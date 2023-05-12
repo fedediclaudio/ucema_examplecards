@@ -16,7 +16,7 @@ public class CreditCard extends Card{
 
     public CreditCard(){}
 
-    public CreditCard(String number, String expiryDate, Customer customer,Bank bank,  double creditLimit, double interestRate) {
+    public CreditCard(String number, String expiryDate, User customer,Bank bank,  double creditLimit, double interestRate) {
         super(number, expiryDate, customer, bank); //Llamado al constructor de la clase padre
         this.creditLimit = creditLimit;
         this.interestRate = interestRate;

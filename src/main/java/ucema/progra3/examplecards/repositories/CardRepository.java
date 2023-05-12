@@ -10,4 +10,7 @@ import java.util.List;
 public interface CardRepository extends CrudRepository<Card, Long> {
 
     List<Card> findByBank_Name(String name);
+
+    List<Card> findByCustomer_Username(String username);
+
 }

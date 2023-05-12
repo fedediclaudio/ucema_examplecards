@@ -1,10 +1,19 @@
 package ucema.progra3.examplecards.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Table(name = "")
-public class User {
+@Table(name = "user")
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +29,10 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER,cascade = {})
     @JoinColumn(name = "id_role", nullable = false)
     private Role role;
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = {})
+    @JsonIgnore
+    private List<Card> cards = new ArrayList<>();
 
     public User() {
     }
@@ -38,12 +51,40 @@ public class User {
         this.id = id;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(role.getName()));
+        return authorities;
     }
 
     public String getPassword() {
@@ -60,5 +101,17 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    public void addCard(Card card) {
+        cards.add(card);
     }
 }

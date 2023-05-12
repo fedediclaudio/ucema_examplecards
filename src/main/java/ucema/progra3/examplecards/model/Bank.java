@@ -1,5 +1,6 @@
 package ucema.progra3.examplecards.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -30,6 +31,7 @@ public class Bank {
     private double totalSpent;
 
     @OneToMany(mappedBy = "bank", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<Card> cards;
 
     public Bank () {

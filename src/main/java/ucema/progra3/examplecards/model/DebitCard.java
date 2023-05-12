@@ -17,7 +17,7 @@ public class DebitCard extends Card {
     public DebitCard(){}
 
 
-    public DebitCard(String number, String expiryDate, Customer customer, Bank bank, String pin) {
+    public DebitCard(String number, String expiryDate, User customer, Bank bank, String pin) {
         super(number, expiryDate, customer, bank); //Llamado al constructor de la clase padre
         this.pin = pin;
     }

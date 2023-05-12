@@ -1,15 +1,8 @@
-package ucema.progra3.examplecards.authentication;
+package ucema.progra3.examplecards.dto;
 
-public class AuthenticationRequest {
+public class LoginDTO {
     private String username;
     private String password;
-
-    public AuthenticationRequest(){}
-
-    public AuthenticationRequest(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 
     public String getUsername() {
         return username;
@@ -27,3 +20,5 @@ public class AuthenticationRequest {
         this.password = password;
     }
 }
+
+
