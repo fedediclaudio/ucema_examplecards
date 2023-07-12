@@ -25,6 +25,7 @@ public class SpringSecurityConfig {
         http
                 //Deshabilita la protección CSRF (Cross-Site Request Forgery)
                 .csrf().disable()
+                .cors().and()
                 //Establece la creación de sesiones en STATELESS, la aplicación no cree sesiones de usuario
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -32,6 +33,7 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests()
                 // Establece que cualquiera puede ejecutar los endpoints de esa ruta
                 .requestMatchers("/api/auth/**").permitAll()
+//                .requestMatchers("/api/bank/**").permitAll()
                 // Establece que solo autenticados pueden ejecutar los endpoints de esa ruta
                 .requestMatchers("/api/card/**").authenticated()
                 // Establece que solo usuarios administradores pueden ejecutar los endpoints de esa ruta

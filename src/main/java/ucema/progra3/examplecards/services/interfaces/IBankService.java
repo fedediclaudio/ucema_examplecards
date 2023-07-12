@@ -9,7 +9,7 @@ public interface IBankService {
 
     Bank createBank(String name, String address);
     Bank updateBank(Bank bank, String name, String address);
-    void deleteBank(Bank bank);
+    void deleteBank(Long id);
 
     Bank getBankById(Long id);
     Bank searchBankByName(String name);

@@ -66,6 +66,11 @@ public class UserServiceImpl implements IUserService {
 
     }
 
+    @Override
+    public User getUserInfo() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return this.userRepository.findByUsername(username).orElse(null);
+    }
 
 
 }

@@ -34,8 +34,8 @@ public class BankServiceImpl implements IBankService {
 
     @Override
     @Transactional
-    public void deleteBank(Bank bank) {
-        this.bankRepository.delete(bank);
+    public void deleteBank(Long id) {
+        this.bankRepository.deleteById(id);
     }
 
     @Override

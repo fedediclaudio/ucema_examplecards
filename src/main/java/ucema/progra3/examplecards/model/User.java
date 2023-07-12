@@ -1,6 +1,7 @@
 package ucema.progra3.examplecards.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,13 +25,14 @@ public class User implements UserDetails {
     private String username;
 
     @Column(length = 100, nullable = false)
+    @JsonIgnore
     private String password;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {})
     @JoinColumn(name = "id_role", nullable = false)
     private Role role;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = {})
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = {})
     @JsonIgnore
     private List<Card> cards = new ArrayList<>();
 

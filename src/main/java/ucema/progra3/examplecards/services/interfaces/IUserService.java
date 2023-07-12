@@ -9,4 +9,5 @@ public interface IUserService {
     Role createRole(Role role);
     boolean checkUserById(Long id);
     String authenticate(String username, String password);
+    User getUserInfo();
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/bank")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class BankController {
 
     @Autowired
@@ -45,8 +45,8 @@ public class BankController {
         return this.service.updateBank(bank, bank.getName(), bank.getAddress());
     }
 
-    @DeleteMapping(path = "")
-    public void deleteBank(@RequestBody Bank bank) {
-        this.service.deleteBank(bank);
+    @DeleteMapping(path = "{id}")
+    public void deleteBank(@PathVariable Long id) {
+        this.service.deleteBank(id);
     }
 }
